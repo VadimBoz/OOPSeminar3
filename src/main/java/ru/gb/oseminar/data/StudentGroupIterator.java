@@ -24,6 +24,6 @@ public class StudentGroupIterator implements Iterator<Student> {
             return null;
         }
         counter++;
-        return students.get(counter);
+        return students.get(--counter);
     }
 }
