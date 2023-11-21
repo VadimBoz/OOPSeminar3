@@ -6,6 +6,9 @@ public class StudentGroup implements Iterable<Student>{
     private List<Student> students;
     private Teacher teacher;
 
+    // применяем DIP
+    final private UserGroupIterator<Student> userGroupIterator = new StudentGroupIterator(this);
+
     public StudentGroup(Teacher teacher, List<Student> students) {
         this.students = students;
         this.teacher = teacher;
@@ -36,7 +39,7 @@ public class StudentGroup implements Iterable<Student>{
     }
 
     @Override
-    public StudentGroupIterator iterator() {
-        return new StudentGroupIterator(this);
+    public UserGroupIterator<Student> iterator() {
+        return userGroupIterator;
     }
 }

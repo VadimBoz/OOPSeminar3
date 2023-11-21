@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataService {
+// применяем DIP
+public class DataService implements DataServiceGeneral {
 
     private List<User> users;
 
@@ -32,5 +33,15 @@ public class DataService {
 
         Student student = new Student(firstName, secondName, patronymic, dateOfBirth, countMaxId);
         this.users.add(student);
+    }
+
+    public List<Student> getAllStudents() {
+        List<Student>  students = new ArrayList<>();
+        for (User user : users) {
+            if (user instanceof  Student) {
+                students.add((Student) user);
+            }
+        }
+        return students;
     }
 }

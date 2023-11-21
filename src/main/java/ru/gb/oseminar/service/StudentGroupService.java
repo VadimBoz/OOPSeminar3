@@ -1,16 +1,13 @@
 package ru.gb.oseminar.service;
 
-import ru.gb.oseminar.data.Student;
-import ru.gb.oseminar.data.StudentComparator;
-import ru.gb.oseminar.data.StudentGroup;
-import ru.gb.oseminar.data.Teacher;
+import ru.gb.oseminar.data.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroupService {
+public class StudentGroupService implements StudentGroupServiceGeneral {
     private StudentGroup studentGroup;
 
     public void createStudentGroup(Teacher teacher, List<Student> students) {
@@ -48,9 +45,11 @@ public class StudentGroupService {
         return students;
     }
 
+//    использование DIP
     public List<Student> getSortedByFIOStudentGroup(){
+        UserComporator<Student> userComporator = new StudentComparator();
         List<Student> students = new ArrayList<>(studentGroup.getStudents());
-        students.sort(new StudentComparator());
+        students.sort(userComporator);
         return students;
     }
 }

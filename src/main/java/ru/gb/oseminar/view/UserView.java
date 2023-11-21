@@ -7,7 +7,8 @@ import ru.gb.oseminar.data.User;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class UserView {
+// применяем DIP
+public class UserView implements UserViewGeneral {
 
     Logger logger = Logger.getLogger(UserView.class.getName());
 

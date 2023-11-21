@@ -1,9 +1,10 @@
 package ru.gb.oseminar.data;
 
-import java.util.Iterator;
+
 import java.util.List;
 
-public class StudentGroupIterator implements Iterator<Student> {
+// применяем DIP
+public class StudentGroupIterator implements UserGroupIterator<Student> {
 
     private int counter;
     private final List<Student> students;
