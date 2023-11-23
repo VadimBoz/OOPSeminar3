@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 // применяем DIP
-public class DataService implements DataServiceGeneral {
+public class DataServise implements DataServiceGeneral {
 
     private List<User> users;
 
-    public DataService() {
+    public DataServise() {
         this.users = new ArrayList<>();
     }
 

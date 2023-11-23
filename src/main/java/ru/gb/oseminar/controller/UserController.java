@@ -3,7 +3,7 @@ package ru.gb.oseminar.controller;
 import ru.gb.oseminar.data.Student;
 import ru.gb.oseminar.data.Teacher;
 import ru.gb.oseminar.data.User;
-import ru.gb.oseminar.service.DataService;
+import ru.gb.oseminar.service.DataServise;
 import ru.gb.oseminar.service.DataServiceGeneral;
 import ru.gb.oseminar.service.StudentGroupService;
 import ru.gb.oseminar.service.StudentGroupServiceGeneral;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserController {
 
-    private final DataServiceGeneral dataService = new DataService();
+    private final DataServiceGeneral dataService = new DataServise();
     private final StudentGroupServiceGeneral studentGroupService = new StudentGroupService();
     private final UserViewGeneral userView = new UserView();
 

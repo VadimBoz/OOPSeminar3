@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+// применяем DIP
 public class StudentGroupService implements StudentGroupServiceGeneral {
     private StudentGroup studentGroup;
 
@@ -45,11 +46,19 @@ public class StudentGroupService implements StudentGroupServiceGeneral {
         return students;
     }
 
-//    использование DIP
     public List<Student> getSortedByFIOStudentGroup(){
-        UserComporator<Student> userComporator = new StudentComparator();
+        UserComporator<Student> userComporator = new StudentComparatorFIO();
         List<Student> students = new ArrayList<>(studentGroup.getStudents());
         students.sort(userComporator);
         return students;
     }
+
+    public List<Student> getSortedByDataStudentGroup() {
+        UserComporator<Student> userComporator = new StudentComporatorDate();
+        List<Student> students = new ArrayList<>(studentGroup.getStudents());
+        students.sort(userComporator);
+        return students;
+    }
+
+
 }
